@@ -1,19 +1,11 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'dream.ui'
-#
-# Created by: PyQt5 UI code generator 5.9
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-    	"""
-		Self generated. Do not edit.
-		Acts like a constructor. Add attributes here.
-    	"""
+        """
+        Self generated. Do not edit.
+        Acts like a constructor. Add attributes here.
+        """
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(900, 675)
         MainWindow.move(100,10)
@@ -25,8 +17,8 @@ class Ui_MainWindow(object):
         MainWindow.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("QMainWindow{\n"
-"background-color: rgb(192, 200, 104);\n"
-"}")
+                                "background-color: rgb(135, 206, 250);\n"
+                                "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -141,10 +133,10 @@ class Ui_MainWindow(object):
         self.list1 = QtWidgets.QListWidget(self.centralwidget)
         self.list1.setAutoFillBackground(True)
         self.list1.setStyleSheet("color: rgb(0, 0, 127);\n"
-"font: 75 12pt \"MS Shell Dlg 2\";")
+                                "font: 75 12pt \"MS Shell Dlg 2\";")
         self.list1.setAutoScroll(True)
         self.list1.setObjectName("list1")
-	    self.list1.itemDoubleClicked.connect(self.removelist1)
+        self.list1.itemDoubleClicked.connect(self.removelist1)
         self.verticalLayout_8.addWidget(self.list1)
         self.btn1 = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
@@ -190,8 +182,8 @@ class Ui_MainWindow(object):
         font.setWeight(9)
         self.l1.setFont(font)
         self.l1.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(0, 0, 127);\n"
-"color: rgb(255, 255, 255);")
+                            "background-color: rgb(0, 0, 127);\n"
+                            "color: rgb(255, 255, 255);")
         self.l1.setAlignment(QtCore.Qt.AlignCenter)
         self.l1.setObjectName("l1")
         self.verticalLayout_9.addWidget(self.l1)
@@ -204,10 +196,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addItem(spacerItem4)
         self.list2 = QtWidgets.QListWidget(self.centralwidget)
         self.list2.setStyleSheet("color: rgb(0, 0, 127);\n"
-"font: 75 12pt \"MS Shell Dlg 2\";")
+                                "font: 75 12pt \"MS Shell Dlg 2\";")
         self.list2.setObjectName("list2")
         self.list2.itemDoubleClicked.connect(self.removelist2)        
-	    self.verticalLayout_9.addWidget(self.list2)
+        self.verticalLayout_9.addWidget(self.list2)
         self.btn2 = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -265,16 +257,16 @@ class Ui_MainWindow(object):
         self.wk=0
         self.avl=1000
         self.used=0
-	    self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.customContextMenuRequested.connect(self.context_menu)
     
     def retranslateUi(self, MainWindow):
-    	"""
-		Self generated. Do not edit the contents of this function.
-    	"""
+        """
+        Self generated. Do not edit the contents of this function.
+        """
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Dream Team Selector"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Cricket Fantasy Game"))
         self.label_4.setText(_translate("MainWindow", "Batsmen"))
         self.label_6.setText(_translate("MainWindow", "Bowlers"))
         self.label_7.setText(_translate("MainWindow", "All Rounders"))
@@ -288,20 +280,20 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Selected Players"))
         self.l1.setText(_translate("MainWindow", "???"))
         self.btn2.setText(_translate("MainWindow", "Points used : "))
-        self.menuFile.setTitle(_translate("MainWindow", "File"))
-        self.menuHelp.setTitle(_translate("MainWindow", "Help"))
-        self.actionNew.setText(_translate("MainWindow", "New Team"))
-        self.actionOpen.setText(_translate("MainWindow", "Open Team"))
+        self.menuFile.setTitle(_translate("MainWindow", "Team Menu"))
+        self.menuHelp.setTitle(_translate("MainWindow", "Game Help"))
+        self.actionNew.setText(_translate("MainWindow", "Create Team"))
+        self.actionOpen.setText(_translate("MainWindow", "Load Team"))
         self.actionSave_Team.setText(_translate("MainWindow", "Save Team"))
         self.actionRules.setText(_translate("MainWindow", "Rules"))
         self.actionInstructions.setText(_translate("MainWindow", "Instructions"))
-        self.actionQuit.setText(_translate("MainWindow", "Team Score"))
+        self.actionQuit.setText(_translate("MainWindow", "View Score"))
     
     def menufunction(self, action):
-    	"""
-		action: The option selected from menu.
-		function: Performs the selected option.
-    	"""
+        """
+        action: The option selected from menu.
+        function: Performs the selected option.
+        """
         txt=action.text()
         if txt=="New Team":        	## Reset the class attributes
             self.bat=0
@@ -327,7 +319,7 @@ class Ui_MainWindow(object):
                     selected=selected+","
             self.saveteam(self.l1.text(),selected,self.used)
         if txt=="Open Team":
-        	## Reset the class attributes
+            ## Reset the class attributes
             self.bat=0
             self.bwl=0
             self.ar=0
@@ -347,13 +339,13 @@ class Ui_MainWindow(object):
             ret=Dialog.exec()
 
     def saveteam(self,nm,string,val):
-    	"""
-    	nm: Name of team
-    	string: List of players in team separated by commas
-    	val: Points used out of 1000
-    	Function: Make entry for new team inside database
-    	"""
-    	## If total players is not 11, show error pop up
+        """
+        nm: Name of team
+        string: List of players in team separated by commas
+        val: Points used out of 1000
+        Function: Make entry for new team inside database
+        """
+        ## If total players is not 11, show error pop up
         if self.bat+self.bwl+self.ar+self.wk!=11:
             self.showdlg("Insufficient players")
             return
@@ -406,12 +398,12 @@ class Ui_MainWindow(object):
         MainWindow.menu.triggered[QtWidgets.QAction].connect(MainWindow.profile)
         MainWindow.menu.exec_(QtGui.QCursor.pos())
 
-	def fillList(self,ctgr):
-		"""
-		ctgr: Category of players
-		Function: Populate list1 with players of given category
-		"""
-		## If name of team is not already selected, show error pop up
+    def fillList(self,ctgr):
+        """
+        ctgr: Category of players
+        Function: Populate list1 with players of given category
+        """
+        ## If name of team is not already selected, show error pop up
         if self.l1.text()=='???':
             self.showdlg("Enter name of team")
             return
@@ -429,21 +421,21 @@ class Ui_MainWindow(object):
         if self.rb2.isChecked()==True:ctgr='BWL'
         if self.rb3.isChecked()==True:ctgr='AR'
         if self.rb4.isChecked()==True:ctgr='WK'
-       	
+           
         self.fillList(ctgr)
     
     def criteria(self,ctgr, item):
-    	"""
-		ctgr: Category of player
-		Function: Check for criterion for each category and show appropriate error pop up
-    	"""
+        """
+        ctgr: Category of player
+        Function: Check for criterion for each category and show appropriate error pop up
+        """
         msg=''
         if ctgr=="BAT" and self.bat>=5:msg="Batsmen not more than 5"
         if ctgr=="BWL" and self.bwl>=5:msg="bowlers not more than 5"
         if ctgr=="AR" and self.ar>=3:msg="Allrounders not more than 3"
         if ctgr=="WK" and self.wk>=1:msg="Wicketkeepers not more than 1"
         if msg!='' or self.avl<=0:
-        	msg = 'You have exhausted your points'
+            msg = 'You have exhausted your points'
             self.showdlg(msg)
             return False
         
@@ -458,9 +450,9 @@ class Ui_MainWindow(object):
         return True
             
     def showstatus(self):
-    	"""
-    	Function: Show available and used points
-    	"""
+        """
+        Function: Show available and used points
+        """
         self.e1.setText(str(self.bat))
         self.e2.setText(str(self.bwl))
         self.e3.setText(str(self.ar))
@@ -484,10 +476,10 @@ class Ui_MainWindow(object):
             self.showstatus()
                          
     def showdlg(self, msg):
-    	"""
-		msg: Message to be shown in the dialog box
-		Function: Show the dialog box with msg
-    	"""
+        """
+        msg: Message to be shown in the dialog box
+        Function: Show the dialog box with msg
+        """
         Dialog = QtWidgets.QMessageBox()
         Dialog.setText(msg)
         Dialog.setWindowTitle("Dream Team Selector")
@@ -495,7 +487,7 @@ class Ui_MainWindow(object):
 
     def removelist2(self, item):
         """
-		Remove players from list2 and add them back to list1
+        Remove players from list2 and add them back to list1
         """
         self.list2.takeItem(self.list2.row(item))
         
@@ -517,7 +509,7 @@ class Ui_MainWindow(object):
             self.wk-=1
             if self.rb4.isChecked()==True:self.list1.addItem(item.text())
         self.showstatus()
-	
+    
 if __name__ == "__main__":
     import sqlite3
     conn = sqlite3.connect('fantasy.db')
